@@ -1,4 +1,4 @@
-package com.tw.bootcamp.problem1;
+package com.tw.bootcamp.p1;
 
 public class Rectangle {
     private final float length;
@@ -9,11 +9,14 @@ public class Rectangle {
         this.width = width;
     }
 
-    public static Rectangle createSquare(float side) {
+    public static Rectangle createSquare(float side) throws InvalidRectangleCreationError {
         return createRectangle(side, side);
     }
 
-    public static Rectangle createRectangle(float length, float width) {
+    public static Rectangle createRectangle(float length, float width) throws InvalidRectangleCreationError {
+        if (length <= 0 || width <= 0) {
+            throw new InvalidRectangleCreationError();
+        }
         return new Rectangle(length, width);
     }
 
