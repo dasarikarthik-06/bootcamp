@@ -36,6 +36,6 @@ public class Volume {
 
     @Override
     public String toString() {
-        return Math.round(unitValue) + " " + unit;
+        return Math.round(unitValue/unit.baseValue * 100)/100 + " " + unit;
     }
 }

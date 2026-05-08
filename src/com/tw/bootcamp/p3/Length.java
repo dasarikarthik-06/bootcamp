@@ -36,6 +36,6 @@ public class Length {
 
     @Override
     public String toString() {
-        return unitValue / unit.baseValue + " " + unit;
+        return Math.round(unitValue / unit.baseValue*100)/100 + " " + unit;
     }
 }
