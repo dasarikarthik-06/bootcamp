@@ -42,7 +42,7 @@ class LengthTest {
     @Test
     void twoInchPlusTwoInchIsRInch() throws InvalidLengthError {
         Length inch1 = Length.create(2, LengthUnit.IN);
-        Length inch2 = Length.create(2,LengthUnit.IN);
+        Length inch2 = Length.create(2, LengthUnit.IN);
         Length expected = Length.create(4, LengthUnit.IN);
         assertEquals(expected, inch1.add(inch2));
     }
@@ -51,6 +51,6 @@ class LengthTest {
     void twoInchPlusTwoPointFiveCMIsThreeInch() throws InvalidLengthError {
         Length twoInch = Length.create(2, LengthUnit.IN);
         Length twoPointFiveCM = Length.create(2.5, LengthUnit.CM);
-        assertEquals(Length.create(3,LengthUnit.IN), twoInch.add(twoPointFiveCM));
+        assertEquals(Length.create(3, LengthUnit.IN), twoInch.add(twoPointFiveCM));
     }
 }
