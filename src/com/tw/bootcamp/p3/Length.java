@@ -15,14 +15,14 @@ public class Length {
         if (unitValue < 0) {
             throw new InvalidLengthError();
         }
-        return new Length(unitValue* lengthUnit.baseValue, lengthUnit);
+        return new Length(unitValue * lengthUnit.baseValue, lengthUnit);
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Length length = (Length) o;
-        return Math.abs(unitValue- length.unitValue) < 0.1;
+        return Math.abs(unitValue - length.unitValue) < 0.01;
     }
 
     @Override
@@ -31,6 +31,11 @@ public class Length {
     }
 
     public Length add(Length other) throws InvalidLengthError {
-        return create(this.unitValue + other.unitValue, LengthUnit.CM);
+        return create(this.unitValue + other.unitValue, LengthUnit.IN);
+    }
+
+    @Override
+    public String toString() {
+        return unitValue / unit.baseValue + " " + unit;
     }
 }

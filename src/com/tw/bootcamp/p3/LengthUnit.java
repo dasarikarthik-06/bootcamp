@@ -1,7 +1,7 @@
 package com.tw.bootcamp.p3;
 
 public enum LengthUnit {
-    CM(1), IN(2.54), FT(30.48), MM(0.1);
+    CM(0.4), IN(1), FT(12), MM(0.04);
 
     public final double baseValue;
 
