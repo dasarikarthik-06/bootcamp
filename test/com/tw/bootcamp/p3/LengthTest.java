@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FeetTest {
+class LengthTest {
     @Test
     void oneFeetShouldBeTwelveInch() throws InvalidLengthError {
         Length feet = Length.createFeet(1);
@@ -25,6 +25,15 @@ class FeetTest {
         Length centimeter1 = Length.createCentimeter(5);
         assertTrue(centimeter.equals(centimeter1));
     }
+
+    @Test
+    void TenMMShouldEqualsToOneCM() throws InvalidLengthError {
+        Length centimeter = Length.createCentimeter(1);
+        Length milliMeter = Length.createMillimeter(10);
+        assertTrue(centimeter.equals(milliMeter));
+    }
+
+
 
     @Test
     void ShouldThrowAnErrorIfAnyValueIsLessThanZero() {
