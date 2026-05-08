@@ -17,8 +17,6 @@ class LengthTest {
         Length inch = Length.create(2, LengthUnit.IN);
         Length centimeter = Length.create(5, LengthUnit.CM);
         assertTrue(inch.equals(centimeter));
-        System.out.println(centimeter);
-        System.out.println(inch);
     }
 
     @Test
