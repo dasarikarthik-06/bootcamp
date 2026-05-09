@@ -30,5 +30,4 @@ class ParkingLotsTest {
         assertTrue(parkingLots.park());
         assertFalse(parkingLots.park());
     }
-
 }
