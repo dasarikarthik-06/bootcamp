@@ -31,4 +31,44 @@ class BagTests {
         assertTrue(bag.addBall(BallColor.GREEN));
         assertFalse(bag.addBall(BallColor.GREEN));
     }
+
+    @Test
+    void shouldNotAddThreeRedWhenOneGreenIsThere() {
+        Bag bag = new Bag();
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.RED));
+        assertTrue(bag.addBall(BallColor.RED));
+        assertFalse(bag.addBall(BallColor.RED));
+    }
+
+    @Test
+    void shouldNotAddMoreThan40PercentOfTheTotalCapacity() {
+        Bag bag = new Bag();
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.YELLOW));
+        assertTrue(bag.addBall(BallColor.YELLOW));
+        assertFalse(bag.addBall(BallColor.YELLOW));
+    }
+
+    @Test
+    void shouldNotAddMoreThan40PercentOfTheTotalCapacity1() {
+        Bag bag = new Bag();
+        assertFalse(bag.addBall(BallColor.YELLOW));
+
+        assertTrue(bag.addBall(BallColor.BLUE));
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.GREEN));
+        assertTrue(bag.addBall(BallColor.RED));
+        assertTrue(bag.addBall(BallColor.RED));
+        assertTrue(bag.addBall(BallColor.BLUE));
+
+        assertTrue(bag.addBall(BallColor.YELLOW));
+        assertTrue(bag.addBall(BallColor.YELLOW));
+        assertTrue(bag.addBall(BallColor.YELLOW));
+        assertTrue(bag.addBall(BallColor.YELLOW));
+
+        assertFalse(bag.addBall(BallColor.YELLOW));
+    }
 }
