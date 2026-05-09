@@ -34,9 +34,24 @@ public class Bag {
         return switch (color) {
             case GREEN -> ballCount >= 3;
             case BLUE -> false;
-            case RED -> balls.getOrDefault(BallColor.GREEN, 0) * 2 <= ballCount;
-            case YELLOW -> getBallCount() == 0 || ((ballCount +1) / (getBallCount()+1.0)) * 100 > 40;
-
+            case RED -> getBallCountOf(BallColor.GREEN) * 2 <= ballCount;
+            case YELLOW -> getBallCount() == 0 || ((ballCount + 1) / (getBallCount() + 1.0)) * 100 > 40;
         };
+    }
+
+    private Integer getBallCountOf(BallColor color) {
+        return balls.getOrDefault(color, 0);
+    }
+
+    public String summary() {
+        StringBuilder summary = new StringBuilder();
+        for (BallColor color : balls.keySet()) {
+            int count = getBallCountOf(color);
+            summary.append(String.format("%-6s:%s%n", color, count));
+        }
+        summary.append("\n");
+        summary.append(String.format("%-6s:%s%n", "Total", getBallCount()));
+
+        return summary.toString();
     }
 }
